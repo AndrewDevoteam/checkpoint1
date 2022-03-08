@@ -44,11 +44,9 @@ public class Application {
             selectedValue = keyboard.nextInt();
             switch (selectedValue) {
                 case 1, 2, 3, 4, 5, 6 -> {
-                    for (int i = 1; i < 2; i++) {
-                        System.out.println("Available Cars");
-                        for (int j = 0; j < carMatrix[i].length; j++) {
-                            System.out.println(carMatrix[selectedValue - 1][j]);
-                        }
+                    System.out.println("Available Cars");
+                    for (int j = 0; j < carMatrix[selectedValue - 1].length; j++) {
+                        System.out.println(carMatrix[selectedValue - 1][j]);
                     }
                 }
                 default -> System.out.println("Invalid input");
