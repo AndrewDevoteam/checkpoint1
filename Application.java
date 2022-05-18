@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class Application {
     public static void main(String[] args) {
-        String carMatrix[][] = new String[6][4];
+        
+        String[][] carMatrix = new String[6][4];
         Scanner keyboard = new Scanner(System.in);
 
         carMatrix[0][0] = "GM";
@@ -31,30 +32,37 @@ public class Application {
         carMatrix[5][1] = "206";
         carMatrix[5][2] = "208";
         carMatrix[5][3] = "2008";
-        int selectedValue = 0;
+        
         int continueOrNot = 1;
 
-
         while (continueOrNot != 0) {
+            
             System.out.println("Please select a car brand to see the available vehicles");
             for (int i = 0; i < 6; i++) {
                 System.out.println((i + 1) + " - " + carMatrix[i][0]);
             }
             System.out.println("0 - Exit");
-            selectedValue = keyboard.nextInt();
+
+            int selectedValue = keyboard.nextInt();
+
             switch (selectedValue) {
+                case 0 -> continueOrNot = 0;
                 case 1, 2, 3, 4, 5, 6 -> {
                     System.out.println("Available Cars");
+                    System.out.println("----------------");
                     for (int j = 0; j < carMatrix[selectedValue - 1].length; j++) {
                         System.out.println(carMatrix[selectedValue - 1][j]);
                     }
                 }
                 default -> System.out.println("Invalid input");
             }
-            System.out.println("Do you wish to continue?");
-            System.out.println("0. No");
-            System.out.println("1. Yes");
-            continueOrNot = keyboard.nextInt();
+            if(continueOrNot != 0){
+                System.out.println("-------------------");
+                System.out.println("Do you wish to continue?");q
+                System.out.println("0. No");
+                System.out.println("1. Yes");
+                continueOrNot = keyboard.nextInt();
+            }
         }
         System.out.println("Program Terminated");
     }
